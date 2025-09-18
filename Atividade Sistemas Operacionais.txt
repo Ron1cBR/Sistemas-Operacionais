@@ -1,0 +1,83 @@
+1. Qual a diferença entre programa e processo?
+Um programa é conjunto de instruções que ficam armazenados em um arquivo no disco HD/SSD.
+Um processo é um programa em execução, surge quando o sistema operacional carrega o programa para a memória e o coloca para rodar.
+
+2. Quais são os estados de um processo e quando ocorrem as transições?
+Novo - quando um processo está sendo criado pelo sistema operacional.
+Pronto - Quando já está na memória principal, preparado para ser executado.
+Executando - Está de fato na CPU, executando suas instruções.
+Bloqueado - Está aguardando um evento externo.
+Exemplo de transição: pronto -> executando: O escalonador do SO escolhe esse processo para usar a CPU.
+
+3. O que contém um Process Control Block (PCB)?
+O PCB (Process Control Block) é a “ficha cadastral” do processo dentro do sistema operacional.
+Cada processo em execução tem o seu PCB, e é nele que o SO guarda todo o contexto necessário para gerenciar e retomar o processo.
+
+4. O que acontece com os recursos de um processo quando ele termina?
+Quando um processo termina, ele deixa de existir como entidade ativa. O sistema operacional precisa limpar tudo o que estava reservado para ele para não desperdiçar recursos nem deixar inconsistências.
+
+5. Qual a diferença entre fork() e exec() no UNIX?
+O fork() cria um novo processo filho duplicando o espaço de endereçamento do processo pai.
+O exec() carrega um novo programa no processo atual (substitui o espaço de endereçamento)
+
+6. Como funciona a hierarquia de processos em UNIX?
+Árvore de processos - Cada processo (exceto init) tem um pai.
+Pai - Quem chamou fork().
+Filho - Criado pelo pai. Pode executar exec().
+Órfão - Pai termina antes; adotado pelo PID 1.
+Zumbi - Filho termina, mas pai ainda não chamou wait().
+
+7. Compare memória compartilhada e troca de mensagens (IPC).
+Memória Compartilhada - O sistema operacional cria uma área de memória comum que pode ser mapeada no espaço de endereçamento de dois ou mais processos.
+Troca de Mensagens - Os processos trocam mensagens explícitas (pacotes de dados) por meio do kernel.
+
+8. Cite exemplos de chamadas de sistema usadas em IPC.
+Mecanismo - Chamadas principais
+Pipes/FIFOs - pipe(), mkfifo(), read(), write()
+Filas de mensagens - msgget(), msgsnd(), msgrcv(), msgctl()
+Memória compartilhada - shmget(), shmat(), shmdt(), shmctl()
+Semáforos - semget(), semop(), semctl()
+POSIX IPC - shm_open(), mq_open(), sem_open()
+Sockets - socket(), bind(), connect(), send(), recv()
+
+9. Por que é importante que o sistema operacional faça gerenciamento de processos?
+O gerenciamento de processos é essencial porque:
+Permite que vários programas rodem “ao mesmo tempo” (multiprogramação/multitarefa).
+Controla criação, execução e término de processos.
+Aloca e libera recursos (CPU, memória, E/S) de forma justa e eficiente.
+Garante isolamento e segurança entre processos.
+Sem esse gerenciamento, haveria conflitos pelo uso da CPU e dos recursos, travamentos e baixa performance.
+
+10. Explique a diferença entre processos independentes e processos cooperativos.
+Independentes:
+Não compartilham dados nem estados com outros processos. Sua execução não afeta e não é afetada por outros. Ex.: um editor de texto e um jogo rodando ao mesmo tempo.
+Cooperativos:
+Precisam interagir e compartilhar dados ou recursos com outros processos. A execução de um pode influenciar o resultado do outro. Ex.: um servidor web e um processo que grava logs para ele.
+
+11. que é um processo zumbi em UNIX/Linux?
+Um zumbi é um processo que já terminou de executar, mas cujo PID e entrada na tabela de processos ainda existem porque o processo pai não chamou wait() para coletar seu status de término.
+Ele não consome CPU, mas ocupa uma entrada na tabela do SO. Muitos zumbis podem esgotar o limite de PIDs.
+
+12. Explique a diferença entre chamadas bloqueantes e não bloqueantes em IPC.
+Bloqueante (síncrona):
+O processo emissor ou receptor fica esperando até que a operação de envio/recebimento seja concluída.
+Ex.: um recv() de socket sem timeout que só retorna quando chegam dados.
+Não bloqueante (assíncrona):
+A chamada retorna imediatamente, mesmo que a operação ainda não tenha sido completada. O processo pode fazer outra coisa enquanto espera.
+Ex.: recvfrom() com flag MSG_DONTWAIT.
+
+13. Qual a diferença entre processo pesado (process) e thread (processo leve)?
+Processo pesado (process):
+Tem seu próprio espaço de endereçamento e recursos (descritores de arquivo, variáveis, pilha etc.). Criar ou alternar processos é mais custoso.
+Thread (processo leve):
+Compartilha o espaço de endereçamento e recursos do processo pai. Cada thread tem sua própria pilha e registradores, mas divide memória e arquivos. É mais rápido criar e trocar contexto entre threads.
+
+14. Por que sistemas operacionais multiprogramados precisam de troca de contexto (context switch)?
+A CPU é compartilhada entre vários processos.
+O SO precisa suspender um processo e passar a execução para outro.
+Para isso, salva o estado (registradores, ponteiro de pilha, contador de programa) do processo atual e restaura o estado do próximo.
+Sem troca de contexto, só um processo usaria a CPU, inviabilizando multitarefa.
+
+15. Cite vantagens e desvantagens da comunicação via memória compartilhada.
+Vantagens: Muito rápida (não precisa copiar dados entre processos), Permite compartilhar grandes quantidades de dados com pouco overhead, Não depende de chamadas ao SO depois de mapeada.
+Desvantagens: Exige sincronização manual (semáforos, mutex) para evitar condições de corrida, Mais difícil de implementar corretamente do que pipes/sockets,Problemas de segurança/isolamento se mal configurada
