@@ -1,0 +1,55 @@
+PÁGINA 1 — Transformando Mainframes em Servidores de Rede
+1. Por que uma empresa desejaria converter seu mainframe em um servidor de rede?
+
+Para permitir que aplicações e dados do mainframe fossem acessados via rede (especialmente Internet/Intranet), aumentando integração, reduzindo custos e melhorando a comunicação entre sistemas e usuários.
+
+2. O que uma empresa precisa fazer para que usuários, bases de dados e aplicações possam ser acessados por microcomputadores via rede?
+
+É necessário adaptar o mainframe com software de middleware ou ferramentas que permitam acesso via navegadores, bancos de dados e protocolos de rede — basicamente transformar o ambiente tradicional em um sistema acessível pela Web.
+
+3. Quando muitos servidores de rede existem em um lugar menor de tempo por que seria mais fácil manter um servidor de mainframe que dezenas de PC’s?
+
+Porque um único mainframe é centralizado, mais seguro, mais robusto e mais simples de administrar do que vários servidores distribuídos, que exigem manutenção individual, atualizações, backups e controle de falhas separados.
+
+
+PÁGINA 2 — Alternativas ao Windows NT/2000
+1. Por que companhias como a Egghead e a EarthLink estão optando por executar suas aplicações empresariais em Unix ou outros sistemas em vez de Windows NT?
+
+Porque o Windows NT não estava conseguindo lidar com a carga, estabilidade e desempenho exigidos. O Unix oferecia maior confiabilidade, segurança e suporte para grandes operações.
+
+2. Por que a Aspect Telecommunications optou por usar uma versão anterior do Unix em vez do Windows NT 4.0, mesmo esperando pelo Windows 2000?
+
+Porque o NT 4.0 não atendia suas necessidades de desempenho e estabilidade, e esperar pelo Windows 2000 significava correr riscos de atrasos, além de que sistemas Unix antigos já eram comprovados e confiáveis.
+
+3. Quais estratégias adotaram para permanecer longe da migração para o Windows NT?
+
+Elas continuaram utilizando Unix e outras plataformas consolidadas, reforçaram seus próprios sistemas de processamento e preferiram investir em melhorias internas ao invés de migrar para o NT, evitando riscos, custos e instabilidade.
+
+
+PÁGINA 3 — O Valor Comercial do Armazenamento de Dados na Era do Comércio Eletrônico
+1. Por que o comércio eletrônico está aumentando enormemente a necessidade de armazenamento de dados?
+
+Porque empresas online lidam com grandes volumes de transações, imagens, vídeos, registros de clientes, pedidos e acessos. Cada interação gera dados que precisam ser armazenados e recuperados rapidamente.
+
+2. Quais são as necessidades de armazenamento das empresas envolvidas em comércio eletrônico?
+
+Precisam de sistemas de armazenamento confiáveis, redundantes, com grande capacidade, alta velocidade de acesso, segurança e soluções de backup para garantir disponibilidade 24/7.
+
+3. Por que as propostas de soluções de armazenamento da EMC estão se tornando tão importantes?
+
+Porque a EMC oferece soluções escaláveis, rápidas, seguras e projetadas justamente para atender grandes volumes de dados típicos do comércio eletrônico, garantindo desempenho e continuidade operacional.
+
+
+PÁGINA 4 — O Caso do Linux e o Software de Fonte Aberta
+1. Quais são as vantagens e limitações de se utilizar software free e de fonte aberta como o Linux?
+
+Vantagens: baixo custo, flexibilidade, estabilidade, segurança, suporte da comunidade e liberdade de customização.
+Limitações: necessidade de conhecimento técnico maior, menos suporte comercial em alguns casos e compatibilidade variável com certos softwares proprietários.
+
+2. Por que empresas como a Jay Jacobs e a Burlington passaram a usar o Linux em lugar de NT nas operações?
+
+Porque o Linux oferecia melhor custo-benefício, maior estabilidade, segurança, desempenho superior para servidores e reduzia drasticamente custos de licenciamento e manutenção.
+
+3. O desenvolvimento de software livre e do Linux mostra que os modelos de negócios baseados em desenvolvimento colaborativo são sustentáveis? Por quê?
+
+Sim, porque empresas e comunidades colaboram para evoluir o sistema rapidamente, sem depender de um único fornecedor. Isso reduz custos, aumenta a inovação e cria soluções robustas que competem com softwares proprietários.
